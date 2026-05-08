@@ -38,6 +38,12 @@ AWarriorHeroCharacter::AWarriorHeroCharacter()
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 }
 
+void AWarriorHeroCharacter::PossessedBy(AController* PossessedController)
+{
+	Super::PossessedBy(PossessedController);
+	
+}
+
 void AWarriorHeroCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	ULocalPlayer* LocalPlayer = GetController<APlayerController>()->GetLocalPlayer();
