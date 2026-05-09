@@ -13,6 +13,7 @@
 #include "WarriorGameplayTags.h"
 #include "Components/Input/WarriorInputComponent.h"
 #include "DataAssets/Input/DataAsset_InputConfig.h"
+#include "DataAssets/StartupData/DataAsset_StartupDataBase.h"
 
 AWarriorHeroCharacter::AWarriorHeroCharacter()
 {
@@ -42,6 +43,13 @@ void AWarriorHeroCharacter::PossessedBy(AController* PossessedController)
 {
 	Super::PossessedBy(PossessedController);
 	
+	if (!CharacterStartUpData.IsNull())
+	{
+		if (UDataAsset_StartupDataBase* LoadedData = CharacterStartUpData.LoadSynchronous())
+		{
+			LoadedData->GiveToAbilitySystemComponent(WarriorAbilitySystemComponent);
+		}
+	}
 }
 
 void AWarriorHeroCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
