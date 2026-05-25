@@ -19,11 +19,15 @@ public:
 	AWarriorEnemyCharacter();
 	
 	FORCEINLINE UEnemyCombatComponent* GetEnemyCombatComponent() const { return EnemyCombatComponent; }
-	
+
 protected:
+	// Begin APawn Interface
+	virtual void PossessedBy(AController* PossessedController) override;
+	// End APawn Interface
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Warrior|Combat")
 	UEnemyCombatComponent* EnemyCombatComponent;
 	
-
-	
+private:
+	void InitEnemyStartupData();
 };
