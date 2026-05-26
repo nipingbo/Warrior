@@ -25,6 +25,11 @@ AWarriorEnemyCharacter::AWarriorEnemyCharacter()
 	EnemyCombatComponent = CreateDefaultSubobject<UEnemyCombatComponent>("EnemyCombatComponent");
 }
 
+UPawnCombatComponent* AWarriorEnemyCharacter::GetPawnCombatComponent() const
+{
+	return EnemyCombatComponent;
+}
+
 void AWarriorEnemyCharacter::PossessedBy(AController* PossessedController)
 {
 	Super::PossessedBy(PossessedController);
