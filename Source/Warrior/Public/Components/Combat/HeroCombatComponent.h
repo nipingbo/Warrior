@@ -18,6 +18,12 @@ class WARRIOR_API UHeroCombatComponent : public UPawnCombatComponent
 public:
 	UFUNCTION(BlueprintCallable, Category = "Warriror|Combat")
 	AWarriorHeroWeapon* GetHeroCarriedWeaponByTag(FGameplayTag InWeaponTag) const;
+	
+	UFUNCTION(BlueprintCallable, Category = "Warriror|Combat")
+	AWarriorHeroWeapon* GetHeroCurrentEquippedWeapon() const;
+	
+	UFUNCTION(BlueprintCallable, Category = "Warriror|Combat")
+	float GetHeroCurrentEquippedWeaponDamageAtLevel(float InLevel) const;
 
 	virtual void OnHitTargetActor(AActor* HitActor) override;
 	virtual void OnWeaponPulledFromTargetActor(AActor* InteractedActor) override;
