@@ -4,6 +4,8 @@
 #include "AbilitySystem/WarriorAttributeSet.h"
 #include "GameplayEffectExtension.h"
 
+#include "WarriorDebugHelper.h"
+
 UWarriorAttributeSet::UWarriorAttributeSet()
 {
 	InitCurrentHealth(1.f);
@@ -36,6 +38,8 @@ void UWarriorAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffec
 		const float NewCurrentHealth = FMath::Clamp(OldHealth - DamageDone, 0.f, GetMaxHealth());
 		SetCurrentHealth(NewCurrentHealth);
 		
+		const FString DebugString = FString::Printf( TEXT("Old Health: %f, Damage Done: %f, New Current Health: %f"), OldHealth, DamageDone, NewCurrentHealth );
+		Debug::Print(DebugString, FColor::Green);
 		//TODO: Notify the UI 
 		
 		//TODO: Handle Character's Death
