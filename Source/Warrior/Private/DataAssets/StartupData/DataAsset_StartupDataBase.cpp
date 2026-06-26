@@ -10,8 +10,8 @@ void UDataAsset_StartupDataBase::GiveToAbilitySystemComponent(UWarriorAbilitySys
                                                               int32 ApplyLevel)
 {
 	check(InASCToGive);
-	GrandAbilities(ActivateOnGivenAbilities, InASCToGive, ApplyLevel);
-	GrandAbilities(ReactiveAbilities, InASCToGive, ApplyLevel);
+	GrantAbilities(ActivateOnGivenAbilities, InASCToGive, ApplyLevel);
+	GrantAbilities(ReactiveAbilities, InASCToGive, ApplyLevel);
 	if (!StartUpGameplayEffects.IsEmpty())
 	{
 		for (const auto& EffectClass: StartUpGameplayEffects)
