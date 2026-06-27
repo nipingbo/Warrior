@@ -1,13 +1,13 @@
 // Raymond Study
 
 
-#include "DataAssets/StartupData/MyDataAsset_EnemyStartupDataBase.h"
+#include "DataAssets/StartupData/DataAsset_EnemyStartupDataBase.h"
 
 #include "GameplayAbilitySpec.h"
 #include "AbilitySystem/WarriorAbilitySystemComponent.h"
 #include "AbilitySystem/Abilities/WarriorEnemyGameplayAbility.h"
 
-void UMyDataAsset_EnemyStartupDataBase::GiveToAbilitySystemComponent(UWarriorAbilitySystemComponent* InASCToGive,
+void UDataAsset_EnemyStartupDataBase::GiveToAbilitySystemComponent(UWarriorAbilitySystemComponent* InASCToGive,
                                                                      int32 ApplyLevel)
 {
 	Super::GiveToAbilitySystemComponent(InASCToGive, ApplyLevel);

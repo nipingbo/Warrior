@@ -18,8 +18,8 @@ void UDataAsset_StartupDataBase::GiveToAbilitySystemComponent(UWarriorAbilitySys
 		{
 			if (!EffectClass) continue;
 			
-			UGameplayEffect* EffectCDO = EffectClass->GetDefaultObject<UGameplayEffect>();
-			InASCToGive->ApplyGameplayEffectToSelf( EffectCDO, ApplyLevel, InASCToGive->MakeEffectContext());
+			UGameplayEffect* Effect = EffectClass->GetDefaultObject<UGameplayEffect>();
+			InASCToGive->ApplyGameplayEffectToSelf(Effect, ApplyLevel, InASCToGive->MakeEffectContext());
 		}
 	}
 	
