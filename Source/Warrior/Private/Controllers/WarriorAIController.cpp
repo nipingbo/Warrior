@@ -5,6 +5,7 @@
 
 #include "Navigation/CrowdFollowingComponent.h"
 #include "WarriorDebugHelper.h"
+#include "BehaviorTree/BlackboardComponent.h"
 #include "Perception/AIPerceptionComponent.h"
 #include "Perception/AISenseConfig_Sight.h"
 
@@ -49,6 +50,10 @@ void AWarriorAIController::OnEnemyPercptionUpdated(AActor* Actor, FAIStimulus St
 {
 	if (Stimulus.WasSuccessfullySensed() && Actor)
 	{
-		Debug::Print(Actor->GetActorNameOrLabel() + TEXT(" was sensed"), FColor::Cyan);
+		//Debug::Print(Actor->GetActorNameOrLabel() + TEXT(" was sensed"), FColor::Cyan);
+		if (UBlackboardComponent* BlackboardComponent = GetBlackboardComponent())
+		{
+			BlackboardComponent->SetValueAsObject(FName("TargetActor"), Actor);
+		}
 	}
 }
